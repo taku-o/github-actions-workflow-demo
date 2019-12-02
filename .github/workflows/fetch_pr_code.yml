@@ -14,15 +14,6 @@ jobs:
       matrix:
         node-version: [12.4.0]
 
-      #steps:
-      #- name: get pull request number
-      #  env:
-      #    prno: ${GITHUB_REF#refs/heads/}
-      #- uses: actions/checkout@v1
-      #  with:
-      #    repository: taku-o/github-actions-workflow-demo
-      #    ref: ${prno}
-
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
