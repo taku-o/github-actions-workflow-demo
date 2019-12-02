@@ -23,6 +23,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: shll
-        run: echo "${{ GITHUB_REF }}"
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+      - name: npm install
+        run: |
+          npm install
+      - run: |
+          git fetch origin ${{ GITHUB_REF }}:pr_${{ GITHUB_REF }}
+          git checkout pr_${{ GITHUB_REF }}
 
