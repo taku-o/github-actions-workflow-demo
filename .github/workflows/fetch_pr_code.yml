@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: shll
         run: |
-          echo "${GITHUB_REF}"
+          echo "${{GITHUB_REF}}"
       #- name: get pull request number
       #  env:
       #    prno: ${GITHUB_REF#refs/heads/}
