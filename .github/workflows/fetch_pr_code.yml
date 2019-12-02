@@ -26,8 +26,8 @@ jobs:
       - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - name: npm install
         run: npm install
+      - name: checkout
+        run: git checkout -b pr_${{ GITHUB_REF }}
       - name: fetch
-        run: |
-          git checkout -b pr_${{ GITHUB_REF }}
-          git pull origin ${{ GITHUB_REF }}
+        run: git pull origin ${{ GITHUB_REF }}
 
