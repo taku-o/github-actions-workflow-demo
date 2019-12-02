@@ -2,7 +2,7 @@ name: get pushed git branch
 
 on:
   push:
-    branches-ignore
+    branches-ignore:
       - master
 
 jobs:
