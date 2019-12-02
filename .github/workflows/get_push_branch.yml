@@ -1,0 +1,27 @@
+name: get pushed git branch
+
+on:
+  push:
+    branches-ignore
+      - master
+
+jobs:
+  build:
+    runs-on: macOS-10.14
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        node-version: [12.4.0]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: get push branch
+        run: |
+          echo pushed git branch is "${GITHUB_REF#refs/heads/}"
+
