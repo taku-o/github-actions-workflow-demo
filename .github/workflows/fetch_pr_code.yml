@@ -3,9 +3,7 @@
 
 name: git fetch pull request code
 
-on:
-  pull_request:
-    types: [opened]
+on: [pull_request]
 
 jobs:
   build:
