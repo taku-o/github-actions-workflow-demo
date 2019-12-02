@@ -20,11 +20,11 @@ jobs:
       - name: shll
         run: |
           echo "${GITHUB_REF}"
-          #- name: get pull request number
-        en#- nav:
-          #- naprno: ${GITHUB_REF#refs/heads/}
-      - us#- naes: actions/checkout@v1
-        wi#- nath:
-          #- narepository: taku-o/github-actions-workflow-demo
-          #- naref: ${prno}
+      #- name: get pull request number
+      #  env:
+      #    prno: ${GITHUB_REF#refs/heads/}
+      #- uses: actions/checkout@v1
+      #  with:
+      #    repository: taku-o/github-actions-workflow-demo
+      #    ref: ${prno}
 
