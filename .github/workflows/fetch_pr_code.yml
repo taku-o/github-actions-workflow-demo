@@ -24,6 +24,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: shll
-        run: |
-          echo "${{ GITHUB_REF }}"
+        run: echo "${{ GITHUB_REF }}"
 
