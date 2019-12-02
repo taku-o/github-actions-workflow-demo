@@ -27,7 +27,7 @@ jobs:
       - name: npm install
         run: npm install
       - name: fetch
-        run: git fetch origin "${{ GITHUB_REF }}:pr_${{ GITHUB_REF }}"
-      - name: checkout
-        run: git checkout "pr_${{ GITHUB_REF }}"
+        run: |
+          git checkout -b pr_${{ GITHUB_REF }}
+          git pull origin ${{ GITHUB_REF }}
 
