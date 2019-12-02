@@ -1,0 +1,30 @@
+# require GITREPO_ACCESS_TOKEN
+#   add GitHub access token to Projects Secrets
+
+name: git fetch pull request code
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  build:
+    runs-on: macOS-10.14
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        node-version: [12.4.0]
+
+    steps:
+      - name: shll
+        run: |
+          echo "${GITHUB_REF}"
+      - name: get pull request number
+        env:
+          prno: ${GITHUB_REF#refs/heads/}
+      - uses: actions/checkout@v1
+        with:
+          repository: taku-o/github-actions-workflow-demo
+          ref: ${prno}
+
