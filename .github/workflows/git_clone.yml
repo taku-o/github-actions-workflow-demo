@@ -1,0 +1,24 @@
+name: git clone
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-10.14
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        node-version: [12.4.0]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          mkdir tmp
+          cd tmp
+          git clone git@github.com:taku-o/github-actions-workflow-demo.git
+
