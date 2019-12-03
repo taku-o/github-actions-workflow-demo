@@ -23,8 +23,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: env GITHUB_REF
+        env:
+          REG_REPO: "pr_${{ GITHUB_REF }}"
       - name: echo
-        run: echo "pr_${{ GITHUB_REF }}"
+        run: echo "${{ REG_REPO }}"
       #- run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       #- name: npm install
       #  run: npm install
